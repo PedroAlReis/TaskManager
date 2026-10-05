@@ -8,7 +8,7 @@ public class TaskStorage {
 
     private static final String FILE_NAME = "tasks.dat";
 
-    // Salva todas as tarefas no arquivo
+    
     public static void saveTasks(List<Task> tasks) {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
             out.writeObject(tasks);
@@ -19,12 +19,12 @@ public class TaskStorage {
         }
     }
 
-    // Carrega todas as tarefas do arquivo
+    
     @SuppressWarnings("unchecked")
     public static List<Task> loadTasks() {
         File file = new File(FILE_NAME);
         if (!file.exists()) {
-            return new ArrayList<>(); // sem arquivo ainda → lista vazia
+            return new ArrayList<>(); 
         }
 
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(FILE_NAME))) {
