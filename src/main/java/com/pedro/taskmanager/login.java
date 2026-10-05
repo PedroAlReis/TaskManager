@@ -14,23 +14,23 @@ public class login extends JFrame {
     public login() {
         super("Task Manager - Login");
 
-        // Tema moderno
+        
         FlatDarkLaf.setup();
 
-        // Config da janela
+        
         setSize(400, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // Painel principal
+       
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBackground(new Color(30, 30, 30));
         panel.setBorder(new EmptyBorder(40, 40, 40, 40));
         add(panel, BorderLayout.CENTER);
 
-        // Título
+        
         JLabel label = new JLabel("Task Manager");
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
         label.setFont(new Font("Segoe UI", Font.BOLD, 26));
@@ -39,31 +39,29 @@ public class login extends JFrame {
 
         panel.add(Box.createVerticalStrut(40));
 
-        // Campo usuário
+       
         JTextField usernameField = new JTextField();
         styleField(usernameField, "Usuário");
         panel.add(usernameField);
 
         panel.add(Box.createVerticalStrut(20));
 
-        // Campo senha
+        
         JPasswordField passwordField = new JPasswordField();
         styleField(passwordField, "Senha");
         panel.add(passwordField);
 
         panel.add(Box.createVerticalStrut(30));
 
-        // Botão Login com glass + animação
+       
         JButton loginButton = glassButton("Entrar");
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(loginButton);
         btnLogin.addActionListener(e -> {
-    // … validação do login …
 
-    // Abre janela principal
     new TaskManagerWindow();
     
-    // Fecha a janela de login
+  
     frame.dispose();
 });
 
@@ -82,7 +80,7 @@ public class login extends JFrame {
     private JButton glassButton(String text) {
         JButton btn = new JButton(text) {
 
-            float alpha = 0.85f; // transparência do efeito glass
+            float alpha = 0.85f; 
 
             @Override
             protected void paintComponent(Graphics g) {
@@ -90,11 +88,11 @@ public class login extends JFrame {
                 Graphics2D g2 = (Graphics2D) g.create();
                 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-                // Glass translucido
+                
                 g2.setColor(new Color(255,255,255,(int)(alpha * 40)));
                 g2.fillRoundRect(0, 0, getWidth(), getHeight(), 25, 25);
 
-                // Brilho superior
+               
                 GradientPaint gp = new GradientPaint(
                         0, 0, new Color(255,255,255,80),
                         0, getHeight(), new Color(255,255,255,0)
