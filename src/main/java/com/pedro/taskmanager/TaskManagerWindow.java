@@ -22,13 +22,13 @@ public class TaskManagerWindow extends JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLayout(new BorderLayout());
 
-        // ===================== CARREGAR TAREFAS =====================
+        
         tasks = TaskStorage.loadTasks();
         for (Task t : tasks) {
             taskListModel.addElement(t.toString());
         }
 
-        // ===================== MENU LATERAL =====================
+        
         JPanel sideMenu = new JPanel(new GridLayout(6, 1, 0, 10));
         sideMenu.setPreferredSize(new Dimension(230, 0));
         sideMenu.setBackground(new Color(25, 25, 25));
@@ -39,7 +39,7 @@ public class TaskManagerWindow extends JFrame {
         sideMenu.add(styledButton("Estatísticas"));
         sideMenu.add(styledButton("Configurações"));
 
-        // ===================== CABEÇALHO =====================
+        
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         topPanel.setBackground(new Color(30, 30, 30));
         topPanel.setBorder(new EmptyBorder(10, 20, 10, 20));
@@ -49,7 +49,7 @@ public class TaskManagerWindow extends JFrame {
         header.setFont(new Font("Arial", Font.BOLD, 26));
         topPanel.add(header);
 
-        // ===================== PAINEL CENTRAL =====================
+       
         JPanel centerPanel = new JPanel(new GridBagLayout());
         centerPanel.setBackground(new Color(20, 20, 20));
 
@@ -63,7 +63,7 @@ public class TaskManagerWindow extends JFrame {
         cardTitle.setFont(new Font("Arial", Font.BOLD, 20));
         mainCard.add(cardTitle, BorderLayout.NORTH);
 
-        // ===================== LISTA DE TAREFAS =====================
+        
         taskList.setFont(new Font("Arial", Font.PLAIN, 17));
         taskList.setBackground(new Color(60, 60, 60));
         taskList.setForeground(Color.WHITE);
@@ -72,7 +72,7 @@ public class TaskManagerWindow extends JFrame {
         scroll.setBorder(null);
         mainCard.add(scroll, BorderLayout.CENTER);
 
-        // ===================== CAMPO + BOTÃO =====================
+       
         JPanel inputArea = new JPanel(new BorderLayout(10, 10));
         inputArea.setBackground(new Color(40, 40, 40));
         inputArea.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -105,7 +105,7 @@ public class TaskManagerWindow extends JFrame {
 
         centerPanel.add(mainCard);
 
-        // ===================== RODAPÉ =====================
+       
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         bottomPanel.setBackground(new Color(30, 30, 30));
         bottomPanel.setBorder(new EmptyBorder(10, 0, 10, 0));
@@ -114,7 +114,7 @@ public class TaskManagerWindow extends JFrame {
         footer.setForeground(Color.WHITE);
         bottomPanel.add(footer);
 
-        // ===================== ADD AO FRAME PRINCIPAL =====================
+        
         add(topPanel, BorderLayout.NORTH);
         add(sideMenu, BorderLayout.WEST);
         add(centerPanel, BorderLayout.CENTER);
@@ -123,7 +123,7 @@ public class TaskManagerWindow extends JFrame {
         setVisible(true);
     }
 
-    // ------------------------ PAINEL ARREDONDADO ------------------------
+    
     private JPanel roundedPanel() {
         return new JPanel() {
             protected void paintComponent(Graphics g) {
@@ -137,7 +137,7 @@ public class TaskManagerWindow extends JFrame {
         };
     }
 
-    // ------------------------ BOTÃO ESTILIZADO + ANIMAÇÃO ------------------------
+    
     private JButton styledButton(String text) {
         JButton btn = new JButton(text) {
 
